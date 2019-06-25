@@ -43,7 +43,7 @@ export default function PlayerCard(props) {
                                         Height : <strong>{props.data.data.height} cm</strong>
                                     </p>
                                     <p>
-                                        Sex:<strong>{props.data.sex}</strong>
+                                        Sex:<strong>{" "+props.data.sex}</strong>
                                     </p> 
                                 </div>
                             </CardBody>
