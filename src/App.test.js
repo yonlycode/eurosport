@@ -5,5 +5,14 @@ import App from './App';
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
 });
+
+it('fetch data on mount', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+})
+
+it('display error if server cant be reach', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+})
