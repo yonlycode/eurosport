@@ -1,4 +1,4 @@
-import React, { useEffect , useState } from 'react'
+import React from 'react'
 import ActivityIndicator from './Components/Activity-indicator/ActivityIndicator';
 import Header from './Components/Header/Header';
 import PlayerCard from './Components/Player-Card/PlayerCard';
