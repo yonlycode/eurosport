@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ErrorScreen(props) {
+export default function ErrorScreen({error,...props}) {
     
     return (
         <div>
@@ -8,7 +8,7 @@ export default function ErrorScreen(props) {
                 there is an error here
             </h1>
             <p id="error_message">
-                {props.error}
+                {error}
             </p>
         </div>
     )

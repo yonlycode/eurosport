@@ -1,10 +1,11 @@
-import React from 'react'
+import React ,{memo} from 'react'
 import { Card, CardImg, CardBody, Row, Col, Badge } from 'reactstrap';
   
-export default function PlayerCard(props) {
+
+const PlayerCard = ({data, ...props}) => {
     let lastWins = 0
     let lastLooses= 0
-    props.data.data.last.map((value, i)=>{
+    data.data.last.map((value, i)=>{
         if (value ===1){
             lastWins +=1
         }else{
@@ -17,15 +18,15 @@ export default function PlayerCard(props) {
                 <CardBody>
                     <Row>
                         <Col md="3">
-                            <CardImg top src={props.data.picture} alt="Card image cap" />
+                            <CardImg top src={data.picture} alt="Card image cap" />
                         </Col>
                         <Col md="4">
                         <strong>
-                            <h3>{props.data.firstname}</h3>
-                            <h4>{props.data.lastname}</h4>
+                            <h3>{data.firstname}</h3>
+                            <h4>{data.lastname}</h4>
                             <p>
-                                <img style={{width:"40px",heigth:"auto",borderRadius:"50%"}} src={props.data.country.picture} alt={props.data.firstname + " photo"}/>
-                                {" "+ props.data.country.code}
+                                <img style={{width:"40px",heigth:"auto",borderRadius:"50%"}} src={data.country.picture} alt={data.firstname + " photo"}/>
+                                {" "+ data.country.code}
                             </p>
                         </strong>
                         </Col>
@@ -34,16 +35,16 @@ export default function PlayerCard(props) {
                             <CardBody>
                                 <div>
                                     <p>
-                                        Age : <strong>{props.data.data.age}</strong>
+                                        Age : <strong>{data.data.age}</strong>
                                     </p>
                                     <p>
-                                        Weight : <strong>{props.data.data.weight/1000}kg</strong>
+                                        Weight : <strong>{data.data.weight/1000}kg</strong>
                                     </p>
                                     <p>
-                                        Height : <strong>{props.data.data.height} cm</strong>
+                                        Height : <strong>{data.data.height} cm</strong>
                                     </p>
                                     <p>
-                                        Sex:<strong>{" "+props.data.sex}</strong>
+                                        Sex:<strong>{" "+data.sex}</strong>
                                     </p> 
                                 </div>
                             </CardBody>
@@ -54,10 +55,10 @@ export default function PlayerCard(props) {
                     <br/>
                     <Row style={{fontWeight:"bolder"}}>  
                         <Col md="4">
-                            <h4>Rank : { props.data.data.rank}</h4>
+                            <h4>Rank : { data.data.rank}</h4>
                         </Col>
                         <Col md="4">
-                            <h4>Points : { props.data.data.points}</h4>
+                            <h4>Points : { data.data.points}</h4>
                         </Col>
                         
                     </Row>
@@ -84,3 +85,4 @@ export default function PlayerCard(props) {
         </div>
     )
 }
+export default memo(PlayerCard)

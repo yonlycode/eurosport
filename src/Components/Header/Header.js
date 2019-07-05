@@ -1,27 +1,21 @@
-import React from 'react';
+import React,{ useState, memo } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
-export default class Example extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      collapsed: true
-    };
+const Header = props =>{
+
+  const [isCollapsed, setCollapsed] = useState(false);
+
+  const toggleNavbar = last =>{
+    setCollapsed(!last)
   }
 
-  toggleNavbar=()=>{
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  }
-  render() {
-    return (
-      <div>
+  let content = (
+    <div>
         <Navbar color="dark" dark >
           <NavbarBrand href="/" className="mr-auto">This is an exercice</NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          <Collapse isOpen={!this.state.collapsed} navbar>
+          <NavbarToggler onClick={()=>toggleNavbar(isCollapsed)} className="mr-2" />
+          <Collapse isOpen={isCollapsed} navbar>
             <Nav navbar>
               <NavItem>
                 <NavLink href="https://github.com/YonnaR">GitHub</NavLink>
@@ -30,6 +24,9 @@ export default class Example extends React.Component {
           </Collapse>
         </Navbar>
       </div>
-    );
-  }
+  )
+  return content
 }
+
+
+export default memo(Header);
